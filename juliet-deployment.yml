@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: bum-bum
+  name: bum-bum
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: juliet-website
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: juliet-website
+    spec:
+      nodeName: worker-1
+      containers:
+      - image: kelphils/juliet-website-repo:1
+        name: juliet-image
+        resources: {}
+status: {}
